@@ -52,7 +52,9 @@ function Comment(props) {
       <UserInfo author="Something"/>
       <CommentBody />
       <div className="UserBadges">
-        <Badge />
+        <Badge badge={props.UserBadge[0]} />
+        <Badge badge={props.UserBadge[1]} />
+        <Badge badge={props.UserBadge[2]} />
         
         <div className="badge">{props.userBadge[2]}</div>
       </div>
