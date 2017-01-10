@@ -1,3 +1,4 @@
+
 var products = [
 	{
 		category: 'Sporting Goods',	
@@ -54,15 +55,15 @@ function ProductCategoryRow(props){
 
 function ProductRow(props){
 	console.log(props);
-	if(props.product.inStock === true){
+	if(props.randomThing.inStock === true){
 		var productClass = "text-success"
 	}else{
 		var productClass = "text-danger"
 	}
 	return(
 		<tr>
-			<td className={productClass}>{props.product.name}</td>
-			<td>{props.product.price}</td>
+			<td className={productClass}>{props.randomThing.name}</td>
+			<td>{props.randomThing.price}</td>
 		</tr>
 	)
 }
@@ -74,14 +75,14 @@ function ProductTable(props){
 	//Init a local var to keep track of what category we are on
 	var lastCategory = "";
 	var key = 0;
-	products.forEach(function(product, index){
-		if(product.category !== lastCategory){
+	products.forEach(function(currProduct, index){
+		if(currProduct.category !== lastCategory){
 			//we need to add this to our rows array becasue its a new cat
-			rows.push(<ProductCategoryRow key={key} category={product.category} />)
-			lastCategory = product.category;
+			rows.push(<ProductCategoryRow key={key} category={currProduct.category} />)
+			lastCategory = currProduct.category;
 			key++;
 		}
-		rows.push(<ProductRow key={key} product={product} />)
+		rows.push(<ProductRow key={key} randomThing={currProduct} />)
 		key++;
 	});
 	console.log(rows);
